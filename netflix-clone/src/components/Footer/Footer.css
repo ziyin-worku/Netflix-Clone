@@ -1,6 +1,8 @@
 .footer_outer_container {
   background-color: #111;
   color: gray;
+  /* bottom: 0;
+  position: sticky; */
   /* display: flex; */
   /* justify-content: center; */
 }
