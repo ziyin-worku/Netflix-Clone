@@ -1,26 +1,23 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 
-:root {
-  font-family: "Inter", serif;
-  font-optical-sizing: auto;
-  font-weight: weight;
-  font-style: normal;
-}
 
-/* :root {
+
+:root {
   --font-base: 'Lexend', sans-serif;
   --font-second-base: 'Inter', sans-serif;
   --bg-color: #111;
   --primary-color: #ffffff;
   --secondary-color: #e50914;
-} */
+}
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 body {
-  background-color: #181717;
-  color: white;
+  background-color: #111;
+  font-family: var(--font-base);
+  color: var(--primary-color);
+
 }
 
