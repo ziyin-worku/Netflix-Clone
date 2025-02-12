@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import "./SingleRow.css";
 import axios from "../../../utils/axios";
-import movieTrailer from "movie-trailer"
-import YouTube from "react-youtube"
+import movieTrailer from "movie-trailer";
+import YouTube from "react-youtube";
 import { width } from "@mui/system";
 
 const SingleRow = ({ title, fetchUrl, isLargeRow }) => {
   const [movie, setMovie] = useState([]);
-  const [trailerUrl, setTrailerUrl]=useState("")
+  const [trailerUrl, setTrailerUrl] = useState("");
 
   const base_url = "https://image.tmdb.org/t/p/original";
 
@@ -16,7 +16,7 @@ const SingleRow = ({ title, fetchUrl, isLargeRow }) => {
       try {
         console.log(fetchUrl);
         const request = await axios.get(fetchUrl);
-        
+
         console.log(request);
         setMovie(request.data.results);
       } catch (error) {
@@ -25,20 +25,21 @@ const SingleRow = ({ title, fetchUrl, isLargeRow }) => {
     })();
   }, [fetchUrl]);
 
-  const handleClick=(movie)=>{
+  const handleClick = (movie) => {
     if (trailerUrl) {
-      setTrailerUrl('')
-    }else{
-      movieTrailer(movie?.title || movie?.name || movie?.original_name)
-      .then((url)=>{
-        console.log(url);
-        const urlParams=new URLSearchParams(new URL(url).search)
-        console.log(urlParams);
-        console.log(urlParams.get('v'));
-        setTrailerUrl(urlParams.get('v'));
-      })
+      setTrailerUrl("");
+    } else {
+      movieTrailer(movie?.title || movie?.name || movie?.original_name).then(
+        (url) => {
+          console.log(url);
+          const urlParams = new URLSearchParams(new URL(url).search);
+          console.log(urlParams);
+          console.log(urlParams.get("v"));
+          setTrailerUrl(urlParams.get("v"));
+        }
+      );
     }
-  }
+  };
 
   const opts = {
     height: "390",
@@ -64,9 +65,8 @@ const SingleRow = ({ title, fetchUrl, isLargeRow }) => {
           />
         ))}
       </div>
-      <div style={{padding:'40px'}}>
-        {trailerUrl && <YouTube videoId={trailerUrl} opts={opts}/>}
-
+      <div style={{ padding: "40px" }}>
+        {trailerUrl && <YouTube videoId={trailerUrl} opts={opts} />}
       </div>
     </div>
   );
