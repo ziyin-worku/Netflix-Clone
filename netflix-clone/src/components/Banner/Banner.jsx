@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./Banner.css";
 import axios from "../../utils/axios";
 import requests from "../../utils/requests";
+import PlayIcon from "@mui/icons-material/ArrowRight";
 
 const Banner = () => {
   const [movie, setMovie] = useState({});
@@ -39,7 +40,12 @@ const Banner = () => {
           {movie?.title || movie?.name || movie?.original_name}
         </h1>
         <div className="banner_buttons">
-          <button className="banner_button play">Play</button>
+          <button className="banner_button play">
+            <span>
+              {/* <PlayIcon /> */}
+            </span>
+            Play
+          </button>
           <button className="banner_button list">My List</button>
         </div>
         <h1 className="banner_description">{truncate(movie?.overview, 150)}</h1>
