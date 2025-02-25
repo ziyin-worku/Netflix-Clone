@@ -39,7 +39,8 @@
 .Service_code {
  
   border: #fff 1px solid;
-  width: 6vw;
+  width: 10vw;
+  padding: 2px 0;
   cursor: pointer;
 }
 .copy_write {
